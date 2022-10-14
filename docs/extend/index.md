@@ -226,7 +226,7 @@ plugins. This is specifically useful to collect plugin logs if they are
 redirected to a file.
 
 ```console
-$ sudo docker-runc --root /var/run/docker/plugins/runtime-root/moby-plugins list
+$ sudo runc --root /run/docker/runtime-runc/plugins.moby list
 
 ID                                                                 PID         STATUS      BUNDLE                                                                                                                                       CREATED                          OWNER
 93f1e7dbfe11c938782c2993628c895cf28e2274072c4a346a6002446c949b25   15806       running     /run/docker/containerd/daemon/io.containerd.runtime.v1.linux/moby-plugins/93f1e7dbfe11c938782c2993628c895cf28e2274072c4a346a6002446c949b25   2018-02-08T21:40:08.621358213Z   root
@@ -235,14 +235,14 @@ c5bb4b90941efcaccca999439ed06d6a6affdde7081bb34dc84126b57b3e793d   14984       r
 ```
 
 ```console
-$ sudo docker-runc --root /var/run/docker/plugins/runtime-root/moby-plugins exec 93f1e7dbfe11c938782c2993628c895cf28e2274072c4a346a6002446c949b25 cat /var/log/plugin.log
+$ sudo runc --root /run/docker/runtime-runc/plugins.moby exec 93f1e7dbfe11c938782c2993628c895cf28e2274072c4a346a6002446c949b25 cat /var/log/plugin.log
 ```
 
 If the plugin has a built-in shell, then exec into the plugin can be done as
 follows:
 
 ```console
-$ sudo docker-runc --root /var/run/docker/plugins/runtime-root/moby-plugins exec -t 93f1e7dbfe11c938782c2993628c895cf28e2274072c4a346a6002446c949b25 sh
+$ sudo runc --root /run/docker/runtime-runc/plugins.moby exec -t 93f1e7dbfe11c938782c2993628c895cf28e2274072c4a346a6002446c949b25 sh
 ```
 
 #### Using curl to debug plugin socket issues.
